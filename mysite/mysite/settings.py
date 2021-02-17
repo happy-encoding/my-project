@@ -75,8 +75,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 配置自己的数据库，这里使用的数据是mysql
+        'ENGINE': 'django.db.backends.mysql',
+        # 库名
+        'NAME': "study",
+        # mysql用户名
+        'USER':"root",
+        # mysql密码
+        "PASSWORD":os.environ.get('mysqlpwd'),
+        "HOST":"localhost",
+        "PORT":3306
     }
 }
 
